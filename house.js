@@ -10,7 +10,7 @@ class House {
     this.cost = argumenObj.cost || 320000
     this.down_payment = argumenObj.down_payment || 0.20
     this.sold = argumenObj.sold || false
-    this.short_sale = short_sale
+    this.short_sale = argumenObj.short_sale
     this.has_tenants = argumenObj.has_tenants || false
   }
 
@@ -41,7 +41,8 @@ var argObj = {
   cost: 12345,
   down_payment: 12345,
   sold: true,
-  has_tenants: false
+  has_tenants: false,
+  short_sale: false
 }
 
 const cool = new House(argObj)
