@@ -2,20 +2,20 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(house) {
+    this.address = house.address
+    this.square_feet = house.square_feet
+    this.num_bedrooms = house.num_bedrooms
+    this.num_baths = house.num_baths
+    this.cost = house.cost
+    this.down_payment = house.down_payment
+    this.sold = house.sold
+    // this.short_sale = short_sale
+    this.has_tenants = house.has_tenants
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****')
   }
 
   buy(money, good_credit) {
@@ -33,6 +33,24 @@ class House {
   }
 }
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
 
+
+
+
+let house = {
+    address : 'address',
+    square_feet : 100,
+    num_bedrooms : 10,
+    num_baths : 10,
+    cost : 10000000,
+    down_payment : 0.100,
+    sold : false,
+    has_tenants : false
+
+}
+
+const cool = new House(house)
+// const cool1 = new House('address', 100, 2, 2, 12345, 12345, true, true)
+
+console.log(cool.hasOwnProperty('square_feet'))
 console.log(cool.to_s())
