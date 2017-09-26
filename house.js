@@ -9,7 +9,7 @@ class House {
     this.num_baths = data.num_baths || 2
     this.cost = data.cost || 320000
     this.down_payment = data.down_payment || 0.20
-    this.sold = data.sold || false
+    this.sold = data.hasOwnProperty('sold')|| false
     this.short_sale = data.short_sale
     this.has_tenants = data.has_tenants || false
   }
@@ -29,7 +29,7 @@ class House {
   }
 
   to_s() {
-    return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}`
+    return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}, ${this.sold}`
   }
 }
 
@@ -40,7 +40,7 @@ let data = {
    'num_baths'  : 2,
    'cost' : 12345,
    'down_payment' : 12345,
-   'sold' : true,
+   'sold' : false,
    'short_sale' : 10, 
    'has_tenants' : true
 }
