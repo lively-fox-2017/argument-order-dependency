@@ -2,20 +2,20 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(objHouse) {
+    this.address = objHouse['address'];
+    this.square_feet = objHouse['square_feet'];
+    this.num_bedrooms = objHouse['num_bedrooms'] || 3
+    this.num_baths = objHouse['num_baths'] || 2
+    this.cost = objHouse['cost'] || 320000
+    this.down_payment = objHouse['down_payment'] || 0.20
+    this.sold = objHouse['sold'] || false
+    this.short_sale = objHouse['short_sale']
+    this.has_tenants = objHouse['has_tenants'] || false
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****')
   }
 
   buy(money, good_credit) {
@@ -32,7 +32,17 @@ class House {
     return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}`
   }
 }
-
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
-
-console.log(cool.to_s())
+//Menyederhanakan parameter objek pada class objek
+let objHouse={
+  address:'Metro Pondok Indah No.20',
+  square_feet:100,
+  num_bedrooms:2,
+  num_baths:2,
+  cost:1000000,
+  down_payment:5000000,
+  sold:true,
+  short_sale:12345,
+  has_tenants:true
+}
+const cool = new House(objHouse);
+console.log(cool.to_s());
