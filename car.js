@@ -3,7 +3,7 @@
 class Car {
 
   start_car(options) {
-    if (options && options['headlights']) {
+    if (options && options.hasOwnProperty(['headlights'])) {// hasOwnProperty untuk mengecek apakah headlights merupakan properti milik options
       this.headlights = options['headlights']
     } else {
       this.headlights = true
