@@ -2,17 +2,17 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
+  constructor(obj) {
   // constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = obj.address
-    this.square_feet = obj.square_feet
-    this.num_bedrooms = obj.num_bedrooms || 3
-    this.num_baths = obj.num_baths || 2
-    this.cost = obj.cost || 320000
-    this.down_payment = obj.down_payment || 0.20
-    this.sold = obj.sold || false
-    this.short_sale = obj.short_sale
-    this.has_tenants = obj.has_tenants || false
+    this.address = obj.address;
+    this.square_feet = obj.square_feet;
+    this.num_bedrooms = obj.num_bedrooms || 3;
+    this.num_baths = obj.num_baths || 2;
+    this.cost = obj.cost || 320000;
+    this.down_payment = obj.down_payment || 0.20;
+    this.sold = obj.sold || false;
+    this.short_sale = obj.short_sale;
+    this.has_tenants = obj.has_tenants || false;
 
     // this.address = address
     // this.square_feet = square_feet
@@ -26,23 +26,22 @@ class House {
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****');
   }
 
   buy(money, good_credit) {
     if (money >= down_payment && good_credit) {
-      this.sold = true
+      this.sold = true;
     }
   }
 
   down_payment() {
-    return cost * this.down_payment
+    return cost * this.down_payment;
   }
 
   to_s() {
-    return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}`
+    return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}`;
   }
-
 
 }
 
@@ -57,11 +56,9 @@ let obj = {
   short_sale: true,
   has_tenants: true,
 
-}
-
-
+};
 
 // const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
-const cool = new House(obj)
+const cool = new House(obj);
 
-console.log(cool.to_s())
+console.log(cool.to_s());
