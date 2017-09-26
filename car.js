@@ -3,7 +3,7 @@
 class Car {
 
   start_car(options) {
-    if (options && options['headlights']) {
+    if (options && options.hasOwnProperty(['headlights'])) {
       this.headlights = options['headlights']
     } else {
       this.headlights = true
@@ -30,3 +30,4 @@ herbie.start_car({
 })
 
 console.log(herbie.headlights) // true ...KOK BISA?!
+console.log(herbie.hasOwnProperty(this.headlights));
