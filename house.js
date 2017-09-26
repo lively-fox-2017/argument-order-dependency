@@ -2,37 +2,52 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(dataRumah) {
+    this.address = dataRumah.address
+    this.square_feet = dataRumah.square_feet
+    this.num_bedrooms = dataRumah.num_bedrooms ||2
+    this.num_baths = dataRumah.num_baths || 2
+    this.cost = dataRumah.cost || 320000
+    this.down_payment = dataRumah.down_payment || 0.02
+    this.sold = dataRumah.sold
+    this.short_sale = dataRumah.short_sale
+    this.has_tenants = dataRumah.has_tenants || false
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****')
+    // console.log(this.address);
   }
 
   buy(money, good_credit) {
-    if (money >= down_payment && good_credit) {
-      this.sold = true
+    if (money >= this.down_payment && good_credit) {
+     return this.sold = true
     }
   }
 
-  down_payment() {
-    return cost * this.down_payment
+  down_payments() {
+    return this.cost * this.down_payment
   }
 
   to_s() {
     return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}`
   }
 }
+let dataRumah ={
+  address:'Jakarta Selatan',
+  square_feet:100,
+  num_bedrooms:3, 
+  num_baths:2, 
+  cost:12345, 
+  down_payment:0.02, 
+  sold:false, 
+  short_sale:false, 
+  has_tenants:true
+}
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
-
+// const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
+const cool = new House(dataRumah)
+console.log(cool.buy(330000,20000));
+console.log(cool.sold);
+console.log(cool.down_payments());
 console.log(cool.to_s())
