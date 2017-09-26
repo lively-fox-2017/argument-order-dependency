@@ -2,16 +2,16 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(params) {
+    this.address = params['address']
+    this.square_feet = params['square_feet']
+    this.num_bedrooms = params['num_bedrooms'] || 3
+    this.num_baths = params['num_baths'] || 2
+    this.cost = params['cost'] || 320000
+    this.down_payment = params['down_payment'] || 0.20
+    this.sold = params['sold'] || false
+    this.short_sale = params['short_sale']
+    this.has_tenants = params['has_tenants'] || false
   }
 
   obscure_address() {
@@ -33,6 +33,17 @@ class House {
   }
 }
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
+let obj = {
+  address : 'address',
+  square_feet : 100,
+  num_bedrooms : 2,
+  num_baths : 2,
+  cost  : 12345,
+  down_payment :  12345,
+  sold  :   true,
+  short_sale  :   'test',
+  has_tenants : true
+}
 
+const cool = new House(obj)
 console.log(cool.to_s())
