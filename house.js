@@ -19,13 +19,13 @@ class House {
   }
 
   buy(money, good_credit) {
-    if (money >= down_payment && good_credit) {
+    if (money >= this.down_payment && good_credit) {
       this.sold = true
     }
   }
 
-  down_payment() {
-    return cost * this.down_payment
+  downPayment() {
+    return this.cost * this.down_payment
   }
 
   to_s() {
@@ -47,4 +47,6 @@ let data = {
 
 const cool = new House(data)
 
+console.log(cool.downPayment())
+cool.buy(50000, 100)
 console.log(cool.to_s())
