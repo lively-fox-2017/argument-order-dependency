@@ -2,7 +2,7 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
+  constructor(argumenObj) {
     this.address = argumenObj.address
     this.square_feet = argumenObj.square_feet
     this.num_bedrooms = argumenObj.num_bedrooms || 3
@@ -33,7 +33,7 @@ class House {
   }
 }
 
-var argumenObj = {
+var argObj = {
   address: 'address',
   square_feet: 100,
   num_bedrooms: 2,
@@ -44,5 +44,5 @@ var argumenObj = {
   has_tenants: false
 }
 
-const cool = new House(argumenObj)
+const cool = new House(argObj)
 console.log(cool.to_s())
