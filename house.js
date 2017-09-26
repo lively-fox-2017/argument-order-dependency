@@ -1,17 +1,29 @@
 'use strict'
 
+let a = {
+    address : 'Palembang, Sumatera selatan',
+    square_feet : 100,
+    num_bedrooms : 4,
+    num_baths : 3,
+    cost : 1500000,
+    down_payment : 10,
+    sold : false,
+    short_sale : 0,
+    has_tenants : true,
+  }
+
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(a) {
+    this.address = a.address
+    this.square_feet = a.square_feet
+    this.num_bedrooms = a.num_bedrooms || 3
+    this.num_baths = a.num_baths || 2
+    this.cost = a.cost || 320000
+    this.down_payment = a.down_payment  || 0.20
+    this.sold = a.sold || false
+    this.short_sale = a.short_sale
+    this.has_tenants = a.has_tenants || false
   }
 
   obscure_address() {
@@ -33,6 +45,6 @@ class House {
   }
 }
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
+const cool = new House(a)
 
 console.log(cool.to_s())
